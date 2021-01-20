@@ -1,6 +1,6 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1208,1175" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:usa="clr-namespace:UiPathTeam.Subtitle.Activities;assembly=SubtitleActivity" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1488,1004" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:usa="clr-namespace:UiPathTeam.Subtitle.Activities;assembly=SubtitleActivity" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="58">
+    <scg:List x:TypeArguments="x:String" Capacity="38">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -35,10 +35,14 @@
       <x:String>UiPathTeam.Subtitle.Activities</x:String>
       <x:String>UiPath.Platform.Triggers</x:String>
       <x:String>UiPath.Platform.Triggers.Scope</x:String>
+      <x:String>UiPath.Mail</x:String>
+      <x:String>UiPath.Mail.SMTP.Activities</x:String>
+      <x:String>UiPath.Mail.Activities</x:String>
+      <x:String>UiPath.Activities.Contracts</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="50">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="33">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -69,20 +73,24 @@
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
       <AssemblyReference>System.ServiceModel</AssemblyReference>
       <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Activities.Contracts</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="572,1070" sap2010:WorkflowViewState.IdRef="Sequence_6">
+  <Sequence sap:VirtualizedContainerService.HintSize="418,1372" sap2010:WorkflowViewState.IdRef="Sequence_6">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Default="[New System.Data.DataTable]" Name="tabCorreios" />
+      <Variable x:TypeArguments="x:String" Name="strEnvUsername" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <usa:DisplaySubtitleActivity ContinueOnError="{x:Null}" BackgroundColor="Black" BackgroundOpacity="0.8" DisplayName="Display Subtitle" DurationMS="3000" FontSize="38" sap:VirtualizedContainerService.HintSize="530,22" sap2010:WorkflowViewState.IdRef="DisplaySubtitleActivity_1" Message="Bot Inicialized" TextColor="White" />
-    <usa:DisplaySubtitleActivity ContinueOnError="{x:Null}" BackgroundColor="Black" BackgroundOpacity="0.8" DisplayName="Display Subtitle" DurationMS="3000" FontSize="38" sap:VirtualizedContainerService.HintSize="530,22" sap2010:WorkflowViewState.IdRef="DisplaySubtitleActivity_2" Message="Kill Edge tasks" TextColor="White" />
-    <Sequence DisplayName="taskKiller" sap:VirtualizedContainerService.HintSize="530,66" sap2010:WorkflowViewState.IdRef="Sequence_3">
+    <usa:DisplaySubtitleActivity ContinueOnError="{x:Null}" BackgroundColor="Black" BackgroundOpacity="0.8" DisplayName="Display Subtitle" DurationMS="3000" FontSize="38" sap:VirtualizedContainerService.HintSize="376,22" sap2010:WorkflowViewState.IdRef="DisplaySubtitleActivity_1" Message="Bot Inicialized" TextColor="White" />
+    <usa:DisplaySubtitleActivity ContinueOnError="{x:Null}" BackgroundColor="Black" BackgroundOpacity="0.8" DisplayName="Display Subtitle" DurationMS="3000" FontSize="38" sap:VirtualizedContainerService.HintSize="376,22" sap2010:WorkflowViewState.IdRef="DisplaySubtitleActivity_2" Message="Kill Edge tasks" TextColor="White" />
+    <Sequence DisplayName="taskKiller" sap:VirtualizedContainerService.HintSize="376,66" sap2010:WorkflowViewState.IdRef="Sequence_3">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -97,7 +105,7 @@
             </ActivityAction.Argument>
             <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="454,451" sap2010:WorkflowViewState.IdRef="Sequence_2">
               <Sequence.Variables>
-                <Variable x:TypeArguments="s:String[]" Default="[{&quot;MSEDGE&quot;, &quot;CMD&quot;, &quot;EXCEL&quot;}]" Name="arrAppCloser" />
+                <Variable x:TypeArguments="s:String[]" Default="[{&quot;MSEDGE&quot;,&quot;EXCEL&quot;,&quot;CMD&quot;}]" Name="arrAppCloser" />
               </Sequence.Variables>
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -119,7 +127,7 @@
                       </sap:WorkflowViewStateService.ViewState>
                       <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'cmd.exe  Command Prompt'" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_1" Text="[&quot;taskkill /F /IM &quot; + item.ToString + &quot;.exe[k(enter)]&quot;]">
                         <ui:TypeInto.Target>
-                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="a9784f35-67b9-496f-824e-f8ae31393d94" InformativeScreenshot="a9af0f84c3d3978cdc3b53321d530d4f">
+                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="a9784f35-67b9-496f-824e-f8ae31393d94" InformativeScreenshot="ed865c5ad1e06f9173b5081647726ec9">
                             <ui:Target.TimeoutMS>
                               <InArgument x:TypeArguments="x:Int32" />
                             </ui:Target.TimeoutMS>
@@ -138,15 +146,15 @@
         </ui:OpenApplication.Body>
       </ui:OpenApplication>
     </Sequence>
-    <usa:DisplaySubtitleActivity ContinueOnError="{x:Null}" BackgroundColor="Black" BackgroundOpacity="0.8" DisplayName="Display Subtitle" DurationMS="3000" FontSize="38" sap:VirtualizedContainerService.HintSize="530,22" sap2010:WorkflowViewState.IdRef="DisplaySubtitleActivity_3" Message="Search table on browser" TextColor="White" />
-    <Sequence DisplayName="browserActivities" sap:VirtualizedContainerService.HintSize="530,66" sap2010:WorkflowViewState.IdRef="Sequence_5">
+    <usa:DisplaySubtitleActivity ContinueOnError="{x:Null}" BackgroundColor="Black" BackgroundOpacity="0.8" DisplayName="Display Subtitle" DurationMS="3000" FontSize="38" sap:VirtualizedContainerService.HintSize="376,22" sap2010:WorkflowViewState.IdRef="DisplaySubtitleActivity_3" Message="Search table on browser" TextColor="White" />
+    <Sequence DisplayName="browserActivities" sap:VirtualizedContainerService.HintSize="376,66" sap2010:WorkflowViewState.IdRef="Sequence_5">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" UiBrowser="{x:Null}" BrowserType="Edge" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="467,184" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" Url="http://www.buscacep.correios.com.br/sistemas/buscacep/">
+      <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="476,184" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" Url="http://www.buscacep.correios.com.br/sistemas/buscacep/">
         <ui:OpenBrowser.Body>
           <ActivityAction x:TypeArguments="x:Object">
             <ActivityAction.Argument>
@@ -209,7 +217,7 @@
           </Catch>
         </TryCatch.Catches>
       </TryCatch>
-      <Sequence DisplayName="Data Scraping" sap:VirtualizedContainerService.HintSize="467,66" sap2010:WorkflowViewState.IdRef="Sequence_15">
+      <Sequence DisplayName="Data Scraping" sap:VirtualizedContainerService.HintSize="476,436" sap2010:WorkflowViewState.IdRef="Sequence_15">
         <Sequence.Variables>
           <Variable x:TypeArguments="sd:DataTable" Default="[New System.Data.DataTable]" Name="ExtractDataTable" />
         </Sequence.Variables>
@@ -246,8 +254,8 @@
         </ui:BrowserScope>
       </Sequence>
     </Sequence>
-    <usa:DisplaySubtitleActivity ContinueOnError="{x:Null}" BackgroundColor="Black" BackgroundOpacity="0.8" DisplayName="Display Subtitle" DurationMS="3000" FontSize="38" sap:VirtualizedContainerService.HintSize="530,22" sap2010:WorkflowViewState.IdRef="DisplaySubtitleActivity_4" Message="Export it to an excel file" TextColor="White" />
-    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="530,288" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" WorkbookPath="adList.xlsx">
+    <usa:DisplaySubtitleActivity ContinueOnError="{x:Null}" BackgroundColor="Black" BackgroundOpacity="0.8" DisplayName="Display Subtitle" DurationMS="3000" FontSize="38" sap:VirtualizedContainerService.HintSize="376,22" sap2010:WorkflowViewState.IdRef="DisplaySubtitleActivity_4" Message="Export it to an excel file" TextColor="White" />
+    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="376,51" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" WorkbookPath="[&quot;C:\Users\&quot; + strEnvUsername + &quot;\Desktop\adList.xlsx&quot;]">
       <ui:ExcelApplicationScope.Body>
         <ActivityAction x:TypeArguments="ui:WorkbookApplication">
           <ActivityAction.Argument>
@@ -265,13 +273,67 @@
       </ui:ExcelApplicationScope.Body>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ExcelApplicationScope>
-    <usa:DisplaySubtitleActivity ContinueOnError="{x:Null}" BackgroundColor="Black" BackgroundOpacity="0.8" DisplayName="Display Subtitle" DurationMS="3000" FontSize="38" sap:VirtualizedContainerService.HintSize="530,22" sap2010:WorkflowViewState.IdRef="DisplaySubtitleActivity_6" Message="Kll Edge task" TextColor="White" />
-    <Sequence DisplayName="taskKiller" sap:VirtualizedContainerService.HintSize="530,66" sap2010:WorkflowViewState.IdRef="Sequence_13">
+    <Sequence DisplayName="Send E-mail" sap:VirtualizedContainerService.HintSize="376,499" sap2010:WorkflowViewState.IdRef="Sequence_17">
+      <Sequence.Variables>
+        <Variable x:TypeArguments="x:String" Name="Setpwd" />
+        <Variable x:TypeArguments="x:String" Name="strSender" />
+        <Variable x:TypeArguments="x:String" Name="strSenderName" />
+        <Variable x:TypeArguments="x:String" Name="strReceiver" />
+      </Sequence.Variables>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="334,160" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+        <ui:MultipleAssign.AssignOperations>
+          <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="x:String">[strSender]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="x:String">Insert Sender Email</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="x:String">[strSenderName]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="x:String">Insert Sender Name</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="x:String">[strReceiver]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="x:String">Insert Email To receive</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+          </scg:List>
+        </ui:MultipleAssign.AssignOperations>
+      </ui:MultipleAssign>
+      <ui:GetPassword DisplayName="Get Password" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="GetPassword_1" ProtectedPassword="AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAl99NjNLUokmnMQtxArL3uQAAAAACAAAAAAAQZgAAAAEAACAAAAAQR2BwQEFUVCNXAwku3YLiYm/QneKnsW/NztiXZRKkvQAAAAAOgAAAAAIAACAAAABNuLxPzTdhtECNVlzCqcyuWjhejOJUGsFG5yiSsjsJuRAAAACGoAhaFd9Zl7Cg7tjvdbLdQAAAAF3fSRUt6oWdM5416s9J1DenqvrO+8v25KGJJXwSixdD/Wu/alJaOggBPr+0CeKs5cfV2PDWsEscpZhZ9oWojus=" Result="[Setpwd]" />
+      <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" TimeoutMS="{x:Null}" Body="Please find attached the Excel Sheet asked." DisplayName="Send SMTP Mail Message" Email="[strSender]" EnableSSL="True" From="[strSender]" sap:VirtualizedContainerService.HintSize="334,145" sap2010:WorkflowViewState.IdRef="SendMail_1" IsBodyHtml="False" Name="[strSenderName]" Password="[Setpwd]" Port="465" SecureConnection="Auto" Server="smtp.gmail.com" Subject="RPA Challenge - Excel File" To="[strReceiver]">
+        <ui:SendMail.Files>
+          <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
+            <InArgument x:TypeArguments="x:String">
+              <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="&quot;C:\Users\&quot; + strEnvUsername + &quot;\Desktop\adList.xlsx&quot;" />
+            </InArgument>
+          </scg:List>
+        </ui:SendMail.Files>
+      </ui:SendMail>
+    </Sequence>
+    <usa:DisplaySubtitleActivity ContinueOnError="{x:Null}" BackgroundColor="Black" BackgroundOpacity="0.8" DisplayName="Display Subtitle" DurationMS="3000" FontSize="38" sap:VirtualizedContainerService.HintSize="376,22" sap2010:WorkflowViewState.IdRef="DisplaySubtitleActivity_6" Message="Kll Edge task" TextColor="White" />
+    <Sequence DisplayName="taskKiller" sap:VirtualizedContainerService.HintSize="376,66" sap2010:WorkflowViewState.IdRef="Sequence_13">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -327,6 +389,6 @@
         </ui:OpenApplication.Body>
       </ui:OpenApplication>
     </Sequence>
-    <usa:DisplaySubtitleActivity ContinueOnError="{x:Null}" BackgroundColor="Black" BackgroundOpacity="0.8" DisplayName="Display Subtitle" DurationMS="3000" FontSize="38" sap:VirtualizedContainerService.HintSize="530,22" sap2010:WorkflowViewState.IdRef="DisplaySubtitleActivity_5" Message="Bot run sucessfully" TextColor="White" />
+    <usa:DisplaySubtitleActivity ContinueOnError="{x:Null}" BackgroundColor="Black" BackgroundOpacity="0.8" DisplayName="Display Subtitle" DurationMS="3000" FontSize="38" sap:VirtualizedContainerService.HintSize="376,22" sap2010:WorkflowViewState.IdRef="DisplaySubtitleActivity_5" Message="Bot run sucessfully" TextColor="White" />
   </Sequence>
 </Activity>
